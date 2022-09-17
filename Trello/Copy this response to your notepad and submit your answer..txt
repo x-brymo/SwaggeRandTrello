@@ -1,0 +1,120 @@
+{
+    "id": "631375034cfa54043a777ca1",
+    "aaId": "631375013778a7aadf192266",
+    "activityBlocked": false,
+    "avatarHash": "faa37672202589bcf843d51eda41a6cd",
+    "avatarUrl": "https://trello-members.s3.amazonaws.com/631375034cfa54043a777ca1/faa37672202589bcf843d51eda41a6cd",
+    "bio": "",
+    "bioData": null,
+    "confirmed": true,
+    "fullName": "mahmoud hafez",
+    "idEnterprise": null,
+    "idEnterprisesDeactivated": [],
+    "idMemberReferrer": null,
+    "idPremOrgsAdmin": [],
+    "initials": "MH",
+    "memberType": "normal",
+    "nonPublic": {},
+    "nonPublicAvailable": true,
+    "products": [],
+    "url": "https://trello.com/mahmoudhafez25",
+    "username": "mahmoudhafez25",
+    "status": "disconnected",
+    "aaBlockSyncUntil": null,
+    "aaEmail": null,
+    "aaEnrolledDate": null,
+    "avatarSource": "none",
+    "credentialsRemovedCount": 0,
+    "domainClaimed": null,
+    "email": "xbrymo06@gmail.com",
+    "goldSunsetFreeTrialIdOrganization": null,
+    "gravatarHash": "48c42f5c0b89ee7d8b4f64dcffb4b6b3",
+    "idBoards": [
+        "6317864f028cb2037fda72a5",
+        "631e4f32dee530018ff4561c",
+        "631f48dfb91ba9035bb6a39b",
+        "631f64446a44ee004d36e595",
+        "631f644898c5f901dd525fdd",
+        "631f644ae26df0007e45af4f",
+        "631f645522f76201ab28859a",
+        "631f64660f763701b0542d9d",
+        "63201c8e64ed030164a67352",
+        "6320e85bd1ab6c01bf6f4680",
+        "6320e875c1ce1b0237cb3a5f",
+        "6320e8a664f19502e3e019f9",
+        "6320e908d39d9f0406a46dc6",
+        "6320ef8a46868402c7ee4381",
+        "6320f309717fd301d4475a6a",
+        "6320f5259486b2018171e847",
+        "6320f66ab0977e014f4c1a60",
+        "6320f7732a3f2a03bf1f3290",
+        "6320f792e0e1f800d13f64aa",
+        "6320f7c3201ba600cb5bb9f3",
+        "6320f80af82de6028814204b",
+        "6320fd8982202f01d5ce9f84",
+        "63210159aafd52036728d688",
+        "632232000015910508dc58ac"
+    ],
+    "idOrganizations": [
+        "631e44d8589e2901bf1d4ac7",
+        "6320fbfb9b6c5c00b502ac21"
+    ],
+    "idEnterprisesAdmin": [],
+    "limits": {
+        "boards": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 4500,
+                "warnAt": 3600
+            }
+        },
+        "orgs": {
+            "totalPerMember": {
+                "status": "ok",
+                "disableAt": 850,
+                "warnAt": 680
+            }
+        }
+    },
+    "loginTypes": [
+        "atlassian"
+    ],
+    "marketingOptIn": {
+        "optedIn": true,
+        "date": "2022-09-03T15:38:46.062Z"
+    },
+    "messagesDismissed": [],
+    "oneTimeMessagesDismissed": [
+        "sent-possible-new-signup-event",
+        "close-menu-of-first-board",
+        "team-template-picker-6313752035c87601fd4cac49",
+        "631e44d8589e2901bf1d4ac7-memberHomeScreenPromptFull",
+        "team-template-picker-631e44d8589e2901bf1d4ac7",
+        "team-template-picker-6320fbfb9b6c5c00b502ac21",
+        "6320fbfb9b6c5c00b502ac21-memberHomeScreenPromptFull"
+    ],
+    "prefs": {
+        "privacy": {
+            "fullName": "public",
+            "avatar": "public"
+        },
+        "sendSummaries": true,
+        "minutesBetweenSummaries": 60,
+        "minutesBeforeDeadlineToNotify": 1440,
+        "colorBlind": false,
+        "locale": "en-US"
+    },
+    "trophies": [],
+    "uploadedAvatarHash": null,
+    "uploadedAvatarUrl": null,
+    "premiumFeatures": [
+        "additionalBoardBackgrounds",
+        "additionalStickers",
+        "customBoardBackgrounds",
+        "customEmoji",
+        "customStickers",
+        "plugins"
+    ],
+    "isAaMastered": true,
+    "ixUpdate": "159"
+}

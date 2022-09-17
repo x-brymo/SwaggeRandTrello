@@ -1,0 +1,59 @@
+GetTestCase(ApiSwagger)
+---------------
+TestCase1 <GET>
+
+API: GET https://fakerestapi.azurewebsites.net/api/v1/Authors
+ Test Case: response should be 200 OK
+ Expected Result: 200 OK
+ Actual Result: 200 OK
+ Status: Pass
+--------
+TestCase2 <GET>
+
+API: GET https://fakerestapi.azurewebsites.net/api/v1/Authors
+ Test Case: Objects inside response contain, id, idBook, firstName, lastName.
+ Expected Result : Objects inside response contain, id, idBook, firstName, lastName. 
+ Actual Result : Objects inside response contain, id, idBook, firstName, lastName. 
+ Status : Pass
+--------
+TestCase3 <POST>
+
+API: GET https://fakerestapi.azurewebsites.net/api/v1/Authors
+ TestCase : Status code is 201 Created
+ Expected Result: Status code is 200 Created
+Actual Result: Status code is 200 Created
+Status: fal
+--------
+TestCase4 <GET>
+
+API : GET https://fakerestapi.azurewebsites.net/api/v1/Authors/authors/books/1
+TestCase :Searching with valid idBook should return relative data in response body
+Expected Result : vaild idBook retruned successfully 
+Actual Result :	vaild idBook retruned successfully 
+status : Pass
+
+-------------------
+TestCase5 <PUT>
+
+API : PUT https://fakerestapi.azurewebsites.net/api/v1/Authors/1
+ TestCase : Author's data is updated successfully , Body matches string
+ Expected Result :  Author's data is updated successfully , Body matches string
+ Actual Result :  Author's data is updated successfully  , Body matches string
+ status : Pass
+
+------------------
+TestCase6 <GET>
+API : GET https://fakerestapi.azurewebsites.net/api/v1/Authors/1
+TestCase : Content-Type is present
+Expected Result :  Content-Type is present
+Actual Result :	 Content-Type is present 
+status : Pass
+
+-------------------
+TestCase7 <Delete>
+
+API : Delete https://fakerestapi.azurewebsites.net/api/v1/Authors/1
+TestCase : Response time is less than 200ms
+Expected Result :  Response time is less than 200ms
+Actual Result :	 Response time is 162ms
+status : Pass

@@ -1,0 +1,283 @@
+{
+	"info": {
+		"_postman_id": "336c9d31-766a-4eb0-9964-96e664d2977a",
+		"name": "fakerestapi.azurewebsites Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22970822"
+	},
+	"item": [
+		{
+			"name": "Authors-Get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful request\", () => {\r",
+							"  pm.expect(pm.response.code).to.be.oneOf([200,299]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Objects inside response contain, id, idBook, firstName, lastName. \", function () {\r",
+							"    pm.expect(pm.response.json()[0].id).to.eql(1);\r",
+							"\tpm.expect(pm.response.json()[0].idBook).to.eql(1);\r",
+							"\tpm.expect(pm.response.json()[0].firstName).to.eql(\"First Name 1\");\r",
+							"\tpm.expect(pm.response.json()[0].lastName).to.eql(\"Last Name 1\");});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUri}}/api/v1/Authors",
+					"host": [
+						"{{BaseUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authors-Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 201\", () => {\r",
+							"  pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"response should befirstname is missed in the request body same for lastname\", function () {\r",
+							"    \r",
+							"    pm.response.to.not.be.error;\r",
+							"    pm.response.to.have.jsonBody(\"firstName\");\r",
+							"    pm.response.to.have.jsonBody(\"lastName\");\r",
+							"    pm.response.to.not.have.jsonBody(\"error\")\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"// pm.test(\"Status code is 200\", function () {\r",
+							"// pm.expect(pm.response.code).to.be.oneOf([200,299]);\r",
+							"// });\r",
+							"\r",
+							"// pm.expect(maa).to.include(\"firstName\");\r",
+							"//     pm.expect(maa).to.include(\"lastName\");\r",
+							"//     if(firstName == maa,lastName==maa){\r",
+							"//             pm.expect(maa).to.include(\"firstName\");\r",
+							"//             pm.expect(maa).to.include(\"lastName\");\r",
+							"//     }else{\r",
+							"//        return maa.equal(\"response code should be 400\")\r",
+							"//     }"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 2002,\r\n  \"idBook\": 200,\r\n  \"firstName\": \"Mahmoud\",\r\n  \"lastName\": \"Hafez\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUri}}/api/v1/Authors",
+					"host": [
+						"{{BaseUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Author-GET-IDbook",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful Author-GET-IDbook request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 299]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUri}}/api/v1/Authors/authors/books/{{idBook}}",
+					"host": [
+						"{{BaseUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"authors",
+						"books",
+						"{{idBook}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Author-PUT-Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"   pm.expect(pm.response.text()).to.include(\"firstName\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"lastName\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 1,\r\n  \"idBook\": 1,\r\n   \"firstName\": \"First Name 022\",\r\n   \"lastName\": \"Last Name 022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUri}}/api/v1/Authors/{{id}}",
+					"host": [
+						"{{BaseUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Author-GET-ID-Updated",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUri}}/api/v1/Authors/{{id}}",
+					"host": [
+						"{{BaseUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Author-GET-ID-Delete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseUri}}/api/v1/Authors/{{id}}",
+					"host": [
+						"{{BaseUri}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"Authors",
+						"{{id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

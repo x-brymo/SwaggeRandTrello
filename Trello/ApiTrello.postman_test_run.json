@@ -1,0 +1,240 @@
+{
+	"id": "a56b07dc-1f7e-4d40-a9cf-5a9b930317d8",
+	"name": "ApiTrello",
+	"timestamp": "2022-09-17T21:24:41.209Z",
+	"collection_id": "22970822-b0530784-20ad-4bc0-a220-9c2efbb4648b",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 11,
+	"totalFail": 1,
+	"results": [
+		{
+			"id": "fc85c340-234e-41bc-bf6b-8cca67b043bd",
+			"name": "CreateBoard",
+			"url": "https://api.trello.com/1/boards/?name=BoardsTestingDel&key=9cc3274433a64925981243d910bd4cbe&token=ffd604994df970ae73afbb9d8bd45ecee62fbd475bed6a6d0a73f82e6e65f69d",
+			"time": 359,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"permissionLevel private": true
+			},
+			"testPassFailCounts": {
+				"permissionLevel private": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				359
+			],
+			"allTests": [
+				{
+					"permissionLevel private": true
+				}
+			]
+		},
+		{
+			"id": "9eadb459-ec11-4132-b4db-511113d1a05d",
+			"name": "GetAllBoards",
+			"url": "https://api.trello.com/1/members/me?boards=open&key=9cc3274433a64925981243d910bd4cbe&token=ffd604994df970ae73afbb9d8bd45ecee62fbd475bed6a6d0a73f82e6e65f69d",
+			"time": 237,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true,
+				"LastBoard": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				},
+				"LastBoard": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				237
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true,
+					"LastBoard": true
+				}
+			]
+		},
+		{
+			"id": "c55fc09d-6ea5-46cf-973c-82909f35449e",
+			"name": "Create a List",
+			"url": "https://api.trello.com/1/boards/6317864f028cb2037fda72a5/lists?name=BoardsTesting06&key=9cc3274433a64925981243d910bd4cbe&token=ffd604994df970ae73afbb9d8bd45ecee62fbd475bed6a6d0a73f82e6e65f69d",
+			"time": 251,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Body matches string": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"Body matches string": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "86cce998-9c36-45a0-93ea-f83225c9d2c5",
+			"name": "Get a Board List",
+			"url": "https://api.trello.com/1/boards/63263b12b789770093c4c077/lists?key=9cc3274433a64925981243d910bd4cbe&token=ffd604994df970ae73afbb9d8bd45ecee62fbd475bed6a6d0a73f82e6e65f69d",
+			"time": 201,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Your test name": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Your test name": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				201
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Your test name": true
+				}
+			]
+		},
+		{
+			"id": "940840d9-66e6-426d-9672-03b136b5d4b4",
+			"name": "Archive List",
+			"url": "https://api.trello.com/1/lists/63263b12b789770093c4c080/closed?key=9cc3274433a64925981243d910bd4cbe&token=ffd604994df970ae73afbb9d8bd45ecee62fbd475bed6a6d0a73f82e6e65f69d&value=true",
+			"time": 278,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"TC5.3- Set-Cookie in headers contains this text:  isEnterpriseAdmin%3Dfalse": true,
+				"In Response Body, closed is true if the value=true": true
+			},
+			"testPassFailCounts": {
+				"TC5.3- Set-Cookie in headers contains this text:  isEnterpriseAdmin%3Dfalse": {
+					"pass": 1,
+					"fail": 0
+				},
+				"In Response Body, closed is true if the value=true": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				278
+			],
+			"allTests": [
+				{
+					"TC5.3- Set-Cookie in headers contains this text:  isEnterpriseAdmin%3Dfalse": true,
+					"In Response Body, closed is true if the value=true": true
+				}
+			]
+		},
+		{
+			"id": "c17563cd-ab61-4106-bf41-244abad4ca8c",
+			"name": "Delete Board",
+			"url": "https://api.trello.com/1/boards/63263b12b789770093c4c077?key=9cc3274433a64925981243d910bd4cbe&token=ffd604994df970ae73afbb9d8bd45ecee62fbd475bed6a6d0a73f82e6e65f69d",
+			"time": 556,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Body matches string": false
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				556
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Body matches string": false
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1882,
+	"collection": {
+		"requests": [
+			{
+				"id": "fc85c340-234e-41bc-bf6b-8cca67b043bd",
+				"method": "POST"
+			},
+			{
+				"id": "9eadb459-ec11-4132-b4db-511113d1a05d",
+				"method": "GET"
+			},
+			{
+				"id": "c55fc09d-6ea5-46cf-973c-82909f35449e",
+				"method": "POST"
+			},
+			{
+				"id": "86cce998-9c36-45a0-93ea-f83225c9d2c5",
+				"method": "GET"
+			},
+			{
+				"id": "940840d9-66e6-426d-9672-03b136b5d4b4",
+				"method": "PUT"
+			},
+			{
+				"id": "c17563cd-ab61-4106-bf41-244abad4ca8c",
+				"method": "DELETE"
+			}
+		]
+	}
+}

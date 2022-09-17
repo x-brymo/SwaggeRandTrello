@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "b0530784-20ad-4bc0-a220-9c2efbb4648b",
+		"name": "ApiTrello",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22970822"
+	},
+	"item": [
+		{
+			"name": "CreateBoard",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"permissionLevel private\", function () {\r",
+							"    pm.expect(pm.response.json().prefs.canBePublic).to.be.equal(true);\r",
+							"   //pm.expect(pm.response.json().canBePublic).to.be.equal(true);\r",
+							"   pm.expect(pm.response.json().prefs.canInvite).to.be.equal(true);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/?name=BoardsTestingDel&key={{apiKey}}&token={{tokenTrello}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						""
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "BoardsTestingDel"
+						},
+						{
+							"key": "key",
+							"value": "{{apiKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tokenTrello}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllBoards",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var BodyJson=pm.response.json();\r",
+							"    pm.expect(BodyJson.idBoards.length).to.be.above(1);\r",
+							"    pm.globals.set(\"FirstBoardID\", BodyJson.idBoards[0]);\r",
+							"    \r",
+							"});\r",
+							"pm.test(\"LastBoard\",function(){\r",
+							"        var BodyJson=pm.response.json().idBoards;\r",
+							"        let main=BodyJson.length-1;\r",
+							"pm.globals.set(\"LastBoardID\", BodyJson[main]);\r",
+							"console.log(pm.variables.get(\"LastBoardID\"));\r",
+							"})\r",
+							"\r",
+							"//pm.globals.set(\"LastBoardID\", BodyJson[BodyJson.length-1].idBoards);\r",
+							"//pm.globals.set(\"LastBoardID\", BodyJson.idBoards[length-1]);\r",
+							"//pm.globals.set(\"LastBoardID\", BodyJson[BodyJson.idBoards.length-1]);\r",
+							"//pm.globals.set(\"LastBoardID\", BodyJson.idBoards[BodyJson.idBoards.lenght-1]);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/members/me?boards=open&key={{apiKey}}&token={{tokenTrello}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"members",
+						"me"
+					],
+					"query": [
+						{
+							"key": "boards",
+							"value": "open"
+						},
+						{
+							"key": "key",
+							"value": "{{apiKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tokenTrello}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"id\");\r",
+							"     pm.expect(pm.response.text()).to.include(\"name\");\r",
+							"     pm.expect(pm.response.text()).to.include(\"idBoard\");\r",
+							"\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.closed).to.eql(false);\r",
+							"    pm.expect(jsonData.limits).to.eql({});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/{{FirstBoardID}}/lists?name=BoardsTesting06&key={{apiKey}}&token={{tokenTrello}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{FirstBoardID}}",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "BoardsTesting06"
+						},
+						{
+							"key": "key",
+							"value": "{{apiKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tokenTrello}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Board List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Your test name\", function () {\r",
+							"     var BodyJson = pm.response.json();\r",
+							"     //pm.expect(jsonData.id.length).to.be.above(25);\r",
+							"     pm.globals.set(\"FirstBoardListID\" , BodyJson[0].id);\r",
+							"     //pm.globals.set(\"LastBoardListID\" , jsonData[jsonData.length-1].id)\r",
+							"     pm.globals.set(\"LastBoardListID\" , BodyJson[BodyJson.length-1].id);\r",
+							"    \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/{{LastBoardID}}/lists?key={{apiKey}}&token={{tokenTrello}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{LastBoardID}}",
+						"lists"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{apiKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tokenTrello}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Archive List",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// pm.test(\"Response Headers include a key called Set-Cookie \", function () {\r",
+							"//     pm.response.to.have.header(\"Cookie\");\r",
+							"//     pm.response.to.be.header(\"Cookie\",\"preAuthProps=s%3A631375034cfa54043a777ca1%3AisEnterpriseAdmin%3Dfalse.v8PB%2Fa1paIuJAn5lqq3YfG06dlrhPbkfRbNgx%2FlQosw; Path=/; header\"\r",
+							"//     );\r",
+							"// });\r",
+							"\r",
+							"pm.test(\"TC5.3- Set-Cookie in headers contains this text:  isEnterpriseAdmin%3Dfalse\", function () {\r",
+							"    pm.expect(pm.response.headers.get(\"Set-Cookie\")).to.include(\"AisEnterpriseAdmin%3Dfalse\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							"\r",
+							"pm.test(\"In Response Body, closed is true if the value=true\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.closed).to.eql(true);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/lists/{{LastBoardListID}}/closed?key={{apiKey}}&token={{tokenTrello}}&value=true",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"lists",
+						"{{LastBoardListID}}",
+						"closed"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{apiKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tokenTrello}}"
+						},
+						{
+							"key": "value",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Board",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"board is removed successfully\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://api.trello.com/1/boards/{{LastBoardID}}?key={{apiKey}}&token={{tokenTrello}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"trello",
+						"com"
+					],
+					"path": [
+						"1",
+						"boards",
+						"{{LastBoardID}}"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "{{apiKey}}"
+						},
+						{
+							"key": "token",
+							"value": "{{tokenTrello}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
